@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+client/node_modules
+server/node_modules
+
+# Next.js build output
+client/.next/
+client/out/
+
+# Server build output
+server/dist/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env*
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
