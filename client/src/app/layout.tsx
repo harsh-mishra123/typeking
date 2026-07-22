@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "TypeKing — Modern Typing Speed Test",
-  description: "Minimalist, high-performance typing test with solo practice and real-time multiplayer racing.",
+  description: "Minimalist, high-performance full-screen typing test with solo practice and real-time multiplayer racing.",
 };
 
 export default function RootLayout({
@@ -25,9 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col justify-between">
+      <body className="min-h-screen flex flex-col justify-between bg-[#0d1117] text-[#e6dfd0]">
         <Navbar />
-        <main className="flex-1 flex flex-col justify-center px-4 py-8 max-w-5xl mx-auto w-full">
+        <main className="flex-1 flex flex-col justify-center items-center px-6 md:px-12 py-6 max-w-7xl mx-auto w-full">
           {children}
         </main>
         <footer className="py-6 text-center text-xs font-mono text-neutral-600">

@@ -48,10 +48,9 @@ export function TypingArea({
       const wordTop = activeWord.offsetTop;
       const containerTop = container.offsetTop;
       const relativeTop = wordTop - containerTop;
-      
-      // Auto-scroll 3-line view like Monkeytype
-      if (relativeTop > 70) {
-        container.scrollTop = relativeTop - 40;
+
+      if (relativeTop > 100) {
+        container.scrollTop = relativeTop - 50;
       } else {
         container.scrollTop = 0;
       }
@@ -64,7 +63,7 @@ export function TypingArea({
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto font-mono select-none">
+    <div className="relative w-full max-w-6xl mx-auto font-mono select-none my-auto">
       <input
         ref={inputRef}
         type="text"
@@ -74,13 +73,13 @@ export function TypingArea({
         tabIndex={0}
       />
 
-      <div className="flex items-center justify-between mb-4 h-10">
-        <div className="text-3xl font-bold text-amber-500/90 font-mono tracking-wider">
+      <div className="flex items-center justify-between mb-6 h-12">
+        <div className="text-4xl font-bold text-amber-500 font-mono tracking-wide">
           {mode === "time" ? `${timeLeft}s` : `${currentWordIndex}/${words.length}`}
         </div>
 
         {status === "running" && (
-          <div className="flex items-center gap-6 text-sm text-neutral-400 font-mono">
+          <div className="flex items-center gap-8 text-base text-neutral-400 font-mono">
             <span>
               WPM: <strong className="text-amber-400 font-semibold">{currentWpm}</strong>
             </span>
@@ -94,7 +93,7 @@ export function TypingArea({
       <div
         ref={containerRef}
         onClick={handleContainerClick}
-        className="relative max-h-[150px] overflow-hidden leading-relaxed text-2xl md:text-3xl tracking-wide flex flex-wrap gap-x-3 gap-y-3 cursor-text transition-all duration-200"
+        className="relative max-h-[260px] overflow-hidden leading-relaxed text-3xl md:text-4xl tracking-wider flex flex-wrap gap-x-4 gap-y-4 cursor-text transition-all duration-200"
       >
         {words.map((word, wIdx) => {
           const isCurrentWord = wIdx === currentWordIndex;
@@ -124,7 +123,7 @@ export function TypingArea({
                 return (
                   <span key={cIdx} className="relative">
                     {isCaretHere && (
-                      <span className="absolute -left-[1.5px] top-1 bottom-1 w-[2.5px] bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(229,164,17,0.9)]" />
+                      <span className="absolute -left-[2px] top-1 bottom-1 w-[3px] bg-amber-400 rounded-full animate-pulse shadow-[0_0_12px_rgba(229,164,17,0.9)]" />
                     )}
                     <span className={charClass}>{c.char}</span>
                   </span>
@@ -133,7 +132,7 @@ export function TypingArea({
 
               {isCurrentWord && word.typed.length >= word.chars.length && (
                 <span className="relative">
-                  <span className="absolute -left-[1.5px] top-1 bottom-1 w-[2.5px] bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(229,164,17,0.9)]" />
+                  <span className="absolute -left-[2px] top-1 bottom-1 w-[3px] bg-amber-400 rounded-full animate-pulse shadow-[0_0_12px_rgba(229,164,17,0.9)]" />
                 </span>
               )}
             </span>
