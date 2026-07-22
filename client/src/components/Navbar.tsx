@@ -44,7 +44,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-4 text-xs font-mono text-neutral-500">
         <a
-          href="https://github.com"
+          href="https://github.com/harsh-mishra123"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-amber-400 transition-colors flex items-center gap-1.5"
