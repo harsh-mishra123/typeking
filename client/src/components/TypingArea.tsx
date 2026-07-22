@@ -49,8 +49,9 @@ export function TypingArea({
       const containerTop = container.offsetTop;
       const relativeTop = wordTop - containerTop;
 
+      // Scroll smoothly when active word moves past line 2
       if (relativeTop > 100) {
-        container.scrollTop = relativeTop - 50;
+        container.scrollTop = relativeTop - 52;
       } else {
         container.scrollTop = 0;
       }
@@ -93,7 +94,7 @@ export function TypingArea({
       <div
         ref={containerRef}
         onClick={handleContainerClick}
-        className="relative max-h-[260px] overflow-hidden leading-relaxed text-3xl md:text-4xl tracking-wider flex flex-wrap gap-x-4 gap-y-4 cursor-text transition-all duration-200"
+        className="relative h-[195px] overflow-hidden leading-relaxed text-2xl md:text-3xl tracking-wider flex flex-wrap gap-x-4 gap-y-4 cursor-text scroll-smooth"
       >
         {words.map((word, wIdx) => {
           const isCurrentWord = wIdx === currentWordIndex;
